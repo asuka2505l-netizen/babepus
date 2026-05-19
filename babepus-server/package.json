@@ -1,0 +1,35 @@
+{
+  "name": "babepus-server",
+  "version": "1.0.0",
+  "description": "Backend API BabePus - marketplace barang bekas kampus.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "marketplace",
+    "kampus",
+    "express",
+    "mysql"
+  ],
+  "author": "BabePus",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.1",
+    "multer": "^2.1.1",
+    "mysql2": "^3.22.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
