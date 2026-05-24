@@ -412,3 +412,233 @@ graph TD
 | 53 | 0 | 1 | 0 |
 | 54 | 0 | 0 | 1 |
 | 55 | 0 | 0 | 0 |
+
+# Cyclomatic Complexity – Flow Pemesanan Barang
+
+Rumus Cyclomatic Complexity:
+
+```text
+V(G) = E - N + 2
+```
+
+Keterangan:
+- E = Jumlah Edge
+- N = Jumlah Node
+- V(G) = Cyclomatic Complexity
+
+---
+
+# A. Create Offer
+
+## Node & Edge
+- Node (N) = 12
+- Edge (E) = 12
+
+## Perhitungan
+```text
+V(G) = E - N + 2
+V(G) = 12 - 12 + 2
+V(G) = 2
+```
+
+## Independent Path
+```text
+Path 1:
+1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9(Ya) → 10 → 12
+
+Path 2:
+1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9(Tidak) → 11 → 12
+```
+
+## Kesimpulan
+```text
+Cyclomatic Complexity = 2
+Jumlah independent path = 2
+```
+
+---
+
+# B. Get Incoming Offers
+
+## Node & Edge
+- Node (N) = 6
+- Edge (E) = 5
+
+## Perhitungan
+```text
+V(G) = 5 - 6 + 2
+V(G) = 1
+```
+
+## Independent Path
+```text
+13 → 14 → 15 → 16 → 17 → 18
+```
+
+## Kesimpulan
+```text
+Cyclomatic Complexity = 1
+Jumlah independent path = 1
+```
+
+---
+
+# C. Accept Offer
+
+## Node & Edge
+- Node (N) = 10
+- Edge (E) = 10
+
+## Perhitungan
+```text
+V(G) = 10 - 10 + 2
+V(G) = 2
+```
+
+## Independent Path
+```text
+Path 1:
+19 → 20 → 21 → 22 → 23 → 24(Ya) → 25 → 26 → 27 → 28
+
+Path 2:
+19 → 20 → 21 → 22 → 23 → 24(Tidak) → 27 → 28
+```
+
+## Kesimpulan
+```text
+Cyclomatic Complexity = 2
+Jumlah independent path = 2
+```
+
+---
+
+# D. Reject Offer
+
+## Node & Edge
+- Node (N) = 7
+- Edge (E) = 6
+
+## Perhitungan
+```text
+V(G) = 6 - 7 + 2
+V(G) = 1
+```
+
+## Independent Path
+```text
+29 → 30 → 31 → 32 → 33 → 34 → 35
+```
+
+## Kesimpulan
+```text
+Cyclomatic Complexity = 1
+Jumlah independent path = 1
+```
+
+---
+
+# E. Confirm Escrow
+
+## Node & Edge
+- Node (N) = 9
+- Edge (E) = 9
+
+## Perhitungan
+```text
+V(G) = 9 - 9 + 2
+V(G) = 2
+```
+
+## Independent Path
+```text
+Path 1:
+36 → 37 → 38 → 39 → 40 → 41(Ya) → 42 → 43 → 44
+
+Path 2:
+36 → 37 → 38 → 39 → 40 → 41(Tidak) → 44
+```
+
+## Kesimpulan
+```text
+Cyclomatic Complexity = 2
+Jumlah independent path = 2
+```
+
+---
+
+# F. Complete Transaction Manual
+
+## Node & Edge
+- Node (N) = 8
+- Edge (E) = 8
+
+## Perhitungan
+```text
+V(G) = 8 - 8 + 2
+V(G) = 2
+```
+
+## Independent Path
+```text
+Path 1:
+45 → 46 → 47 → 48 → 49 → 50(Ya) → 51 → 52
+
+Path 2:
+45 → 46 → 47 → 48 → 49 → 50(Tidak) → 52
+```
+
+## Kesimpulan
+```text
+Cyclomatic Complexity = 2
+Jumlah independent path = 2
+```
+
+---
+
+# G. Notification
+
+## Node & Edge
+- Node (N) = 3
+- Edge (E) = 2
+
+## Perhitungan
+```text
+V(G) = 2 - 3 + 2
+V(G) = 1
+```
+
+## Independent Path
+```text
+53 → 54 → 55
+```
+
+## Kesimpulan
+```text
+Cyclomatic Complexity = 1
+Jumlah independent path = 1
+```
+
+---
+
+# Total Cyclomatic Complexity Sistem
+
+| Flow | Complexity |
+|------|------------|
+| Create Offer | 2 |
+| Get Incoming Offers | 1 |
+| Accept Offer | 2 |
+| Reject Offer | 1 |
+| Confirm Escrow | 2 |
+| Complete Transaction Manual | 2 |
+| Notification | 1 |
+
+## Total
+```text
+2 + 1 + 2 + 1 + 2 + 2 + 1 = 11
+```
+
+# Final Result
+```text
+Total Cyclomatic Complexity = 11
+Total Independent Path = 11
+```
