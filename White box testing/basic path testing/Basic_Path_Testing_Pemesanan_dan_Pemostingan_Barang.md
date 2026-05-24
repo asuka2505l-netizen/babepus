@@ -1,3 +1,4 @@
+~~~ mermaid
 graph TD
   0((Start)) --> 1[1. User login/auth]
   1 --> 2[2. POST /products]
@@ -36,3 +37,4 @@ graph TD
   29 --> 30[30. authMiddleware]
   30 --> 31[31. productController.deleteProduct]
   31 --> 32((End))
+~~~
