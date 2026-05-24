@@ -9,7 +9,7 @@
 | 3 | Model Formal Inspection |belum dikerjakan  |  |
 | 4 | Model Loop Testing | Belum dikerjakan | |
 | 5 | Model Control Flow Testing | Sudah Selesai | Raka |
-| 6 | Model Data Flow Testing | Sedang Dikerjakan |  |
+| 6 | Model Data Flow Testing | Sedang Dikerjakan | iki |
 | 7 | Model Basic Path Testing | Sudah Dikerjakan | Raka |
 
 
