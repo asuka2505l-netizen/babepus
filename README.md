@@ -1,33 +1,38 @@
 # Tabel Progress Pengerjaan Project
 
-# White Box Testing
 
-- [x] Model Desk Checking — **Raka**
-- [ ] Model Code Walkthrough
-- [ ] Model Formal Inspection
-- [ ] Model Loop Testing
-- [x] Model Control Flow Testing — **Raka**
-- [ ] Model Data Flow Testing — **Iki** *(Sedang Dikerjakan)*
-- [x] Model Basic Path Testing — **Raka**
+# White Box Testing
+| No | Tugas | Status | Dikerjakan Oleh |
+|----|--------|---------|-----------------|
+| 1 | Model Desk Checking | Sudah Selesai | Raka |
+| 2 | Model Code Walkthrough | belum dikerjakan |  |
+| 3 | Model Formal Inspection |belum dikerjakan  |  |
+| 4 | Model Loop Testing | Belum dikerjakan | |
+| 5 | Model Control Flow Testing | Sudah Selesai | Raka |
+| 6 | Model Data Flow Testing | Sedang Dikerjakan | iki |
+| 7 | Model Basic Path Testing | Sudah Dikerjakan | Raka |
+
 
 ---
-
 # Black Box Testing
-
-- [x] Boundary Value Analysis — **Raka**
-- [ ] Equivalence Partitioning
-- [x] Comparison Testing — **Raka**
-- [x] Decision Table Testing — **Raka**
-- [ ] Sample Testing
-- [ ] Robustness Testing
-- [ ] Behaviour Testing
-- [ ] Performance Testing
-- [ ] Endurance Testing
+| No | Tugas | Status | Dikerjakan Oleh |
+|----|--------|---------|-----------------|
+| 1 | Boundary Value Analysis | Sudah Selesai | Raka |
+| 2 | Equivalence Partitioning | belum Dikerjan |  |
+| 3 | Comparison Testing | Sudah Dikerjakan | Raka |
+| 4 | Decision Table Testing | Sudah Dikerjakan | Raka |
+| 5 | Sample Testing | belum Selesai |  |
+| 6 | Robustness Testing | Belum Dikerjakan |  |
+| 7 | Behaviour Testing | Belum Dikerjakan |  |
+| 8 | Performance Testing | Belum Dikerjakan | |
+| 9 | Endurance Testing | Belum Dikerjakan |  |
 
 ---
 
 # Keterangan Status
 
-- [x] Sudah Selesai
-- [ ] Belum Dikerjakan
-- 🔄 Sedang Dikerjakan
+| Status | Keterangan |
+|---------|-------------|
+| Belum Dikerjakan | Task belum dimulai |
+| Sedang Dikerjakan | Task sedang dalam proses |
+| Sudah Selesai | Task telah selesai dikerjakan | 
