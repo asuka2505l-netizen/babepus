@@ -137,3 +137,101 @@ graph TD
 ```text
 28 → 29 → 30 → 31 → 32
 ```
+
+# Graph Matrix – Flow Produk
+
+## A. Create Product
+
+### Node
+| Node | Keterangan |
+|------|-------------|
+| 1 | User login/auth |
+| 2 | POST /products |
+| 3 | authMiddleware |
+| 4 | productImageUpload |
+| 5 | Decision: gambar ada? |
+| 6 | productPayloadValidator |
+| 7 | Error gambar wajib diunggah |
+| 8 | validateRequest |
+| 9 | productController.createProduct |
+| 10 | productService.createProduct |
+| 11 | ensureCategoryExists |
+| 12 | generateUniqueSlug |
+| 13 | Insert produk |
+| 14 | Response success |
+| 15 | End |
+
+---
+
+## Edge / Graph Matrix
+
+| Edge | Path |
+|------|------|
+| E1 | 1 → 2 |
+| E2 | 2 → 3 |
+| E3 | 3 → 4 |
+| E4 | 4 → 5 |
+| E5 | 5 → 6 |
+| E6 | 5 → 7 |
+| E7 | 6 → 8 |
+| E8 | 8 → 9 |
+| E9 | 9 → 10 |
+| E10 | 10 → 11 |
+| E11 | 11 → 12 |
+| E12 | 12 → 13 |
+| E13 | 13 → 14 |
+| E14 | 14 → 15 |
+| E15 | 7 → 15 |
+
+---
+
+## Adjacency Matrix
+
+| Node | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
+|------|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|
+| 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 3 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 4 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 5 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 6 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 7 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+| 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 10 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
+| 11 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
+| 12 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
+| 13 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
+| 14 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+| 15 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+---
+
+# Cyclomatic Complexity
+
+## Rumus
+```text
+V(G) = E - N + 2
+```
+
+Keterangan:
+- E = Jumlah edge
+- N = Jumlah node
+
+## Perhitungan
+```text
+E = 15
+N = 15
+
+V(G) = 15 - 15 + 2
+V(G) = 2
+```
+
+## Hasil
+```text
+Cyclomatic Complexity = 2
+```
+
+Artinya terdapat:
+- 2 jalur independen
+- 2 test case minimum untuk pengujian basis path
