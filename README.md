@@ -10,7 +10,7 @@
 | 4 | Model Loop Testing | Belum dikerjakan | |
 | 5 | Model Control Flow Testing | Sudah Selesai | Raka |
 | 6 | Model Data Flow Testing | Sedang Dikerjakan |  |
-| 7 | Model Basic Path Testing | Belum Dikerjakan |  |
+| 7 | Model Basic Path Testing | Sudah Dikerjakan | Raka |
 
 
 ---
