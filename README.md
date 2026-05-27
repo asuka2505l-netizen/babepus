@@ -22,7 +22,7 @@
 | 3 | Comparison Testing | Sudah Dikerjakan | Raka |
 | 4 | Decision Table Testing | Sudah Dikerjakan | Raka |
 | 5 | Sample Testing | belum Selesai |  |
-| 6 | Robustness Testing | Belum Dikerjakan |  |
+| 6 | Robustness Testing | selesai | Adit |
 | 7 | Behaviour Testing | Belum Dikerjakan |  |
 | 8 | Performance Testing | Belum Dikerjakan | |
 | 9 | Endurance Testing | Belum Dikerjakan |  |
