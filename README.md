@@ -6,7 +6,7 @@
 |----|--------|---------|-----------------|
 | 1 | Model Desk Checking | Sudah Selesai | Raka |
 | 2 | Model Code Walkthrough | sudah selesai | iki |
-| 3 | Model Formal Inspection | belum dikerjakan |  |
+| 3 | Model Formal Inspection | belum dikerjakan |Raka  |
 | 4 | Model Loop Testing | sudah selesai | iki|
 | 5 | Model Control Flow Testing | Sudah Selesai | Raka |
 | 6 | Model Data Flow Testing | sudah selesai | iki |
