@@ -36,3 +36,23 @@
 | Belum Dikerjakan | Task belum dimulai |
 | Sedang Dikerjakan | Task sedang dalam proses |
 | Sudah Selesai | Task telah selesai dikerjakan | 
+
+
+```mermaid
+erDiagram
+    ANGGOTA ||--o{ PEMINJAMAN : meminjam
+
+    ANGGOTA {
+        int id PK
+        string no_anggota
+        string nm_anggota
+        string nik_ktp
+    }
+
+    PEMINJAMAN {
+        int id_pinjaman PK
+        int id_anggota FK
+        date tanggal_pinjam
+        string status
+    }
+```
