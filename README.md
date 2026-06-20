@@ -29,6 +29,15 @@
 
 ---
 
+# Gray Box Testing
+| No | Tugas | Status | Dikerjakan Oleh |
+|----|--------|---------|-----------------|
+| 1 | Orthogonal Array | blm |  |
+| 2 | MatrixTesting | blm |  |
+| 3 | Regression Testing | blm |  |
+| 4 | Pattern Testing | blm |  |
+
+---
 # Keterangan Status
 
 | Status | Keterangan |
