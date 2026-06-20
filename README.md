@@ -18,7 +18,7 @@
 | No | Tugas | Status | Dikerjakan Oleh |
 |----|--------|---------|-----------------|
 | 1 | Boundary Value Analysis | Sudah Selesai | Raka |
-| 2 | Equivalence Partitioning | belum Dikerjan |  |
+| 2 | Equivalence Partitioning | sudah Dikerjan | Raka |
 | 3 | Comparison Testing | Sudah Dikerjakan | Raka |
 | 4 | Decision Table Testing | Sudah Dikerjakan | Raka |
 | 5 | Sample Testing | belum Selesai |  |
