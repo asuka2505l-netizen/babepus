@@ -1,7 +1,6 @@
 # Model Comparison Testing - BabePus
 
-Dokumen ini memetakan model Comparison Testing sesuai proses `12345.png` dan kode aplikasi Babepus.
-Semua fungsi aplikasi dimasukkan tanpa pengurangan atau penambahan fitur.
+
 
 ## 1. Proses Comparison Testing
 
