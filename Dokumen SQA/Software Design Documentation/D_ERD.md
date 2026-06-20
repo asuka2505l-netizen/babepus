@@ -17,13 +17,13 @@ erDiagram
         varchar study_program
         varchar student_id
         varchar campus_email
-        enum role
+        enum role "user|admin"
         varchar avatar_url
         varchar bio
         decimal rating_average
         int rating_count
         tinyint is_suspended
-        enum verification_status
+        enum verification_status "pending|verified|rejected"
         datetime email_verified_at
         varchar email_verification_token
         datetime email_verification_expires_at
@@ -47,11 +47,11 @@ erDiagram
         varchar slug UK
         text description
         decimal price
-        enum condition_label
+        enum condition_label "like_new|good|fair|needs_repair"
         varchar campus_location
         varchar faculty
         varchar image_url
-        enum status
+        enum status "active|sold|archived"
         int view_count
         datetime sold_at
         datetime deleted_at
@@ -66,7 +66,7 @@ erDiagram
         bigint seller_id FK
         decimal offer_price
         varchar note
-        enum status
+        enum status "pending|accepted|rejected|auto_rejected"
         timestamp created_at
         timestamp updated_at
     }
@@ -78,8 +78,8 @@ erDiagram
         bigint buyer_id FK
         bigint seller_id FK
         decimal final_price
-        enum status
-        enum escrow_status
+        enum status "pending_meetup|completed|cancelled"
+        enum escrow_status "awaiting_payment|holding|released|refunded|disputed"
         datetime buyer_confirmed_at
         datetime seller_confirmed_at
         datetime payout_released_at
@@ -107,12 +107,12 @@ erDiagram
     reports {
         bigint id PK
         bigint reporter_id FK
-        enum target_type
+        enum target_type "product|user"
         bigint target_user_id FK
         bigint target_product_id FK
         varchar reason
         varchar details
-        enum status
+        enum status "pending|reviewed|resolved|rejected"
         varchar admin_note
         bigint reviewed_by FK
         datetime reviewed_at
@@ -126,7 +126,7 @@ erDiagram
         varchar document_type
         varchar document_number
         varchar campus_email
-        enum status
+        enum status "pending|approved|rejected"
         varchar notes
         bigint verified_by FK
         datetime verified_at
@@ -181,23 +181,23 @@ erDiagram
     }
 
     users ||--o{ products : "sells"
-    users ||--o{ offers : "makes_offers_as_buyer"
-    users ||--o{ offers : "receives_offers_as_seller"
-    users ||--o{ transactions : "buys"
-    users ||--o{ transactions : "sells"
-    users ||--o{ reviews : "writes_reviews"
-    users ||--o{ reviews : "receives_reviews"
-    users ||--o{ reports : "reports"
-    users ||--o{ reports : "reported"
-    users ||--o{ reports : "reviews_reports"
-    users ||--o{ verifications : "submits"
-    users ||--o{ verifications : "verifies"
-    users ||--o{ wishlists : "owns"
-    users ||--o{ notifications : "receives"
-    users ||--o{ conversations : "participates_as_buyer"
-    users ||--o{ conversations : "participates_as_seller"
-    users ||--o{ messages : "sends"
-    users ||--o{ escrow_events : "performs_actions"
+    users ||--o{ offers : "buyer_id"
+    users ||--o{ offers : "seller_id"
+    users ||--o{ transactions : "buyer_id"
+    users ||--o{ transactions : "seller_id"
+    users ||--o{ reviews : "reviewer_id"
+    users ||--o{ reviews : "seller_id"
+    users ||--o{ reports : "reporter_id"
+    users ||--o{ reports : "target_user_id"
+    users ||--o{ reports : "reviewed_by"
+    users ||--o{ verifications : "user_id"
+    users ||--o{ verifications : "verified_by"
+    users ||--o{ wishlists : "user_id"
+    users ||--o{ notifications : "user_id"
+    users ||--o{ conversations : "buyer_id"
+    users ||--o{ conversations : "seller_id"
+    users ||--o{ messages : "sender_id"
+    users ||--o{ escrow_events : "actor_id"
 
     categories ||--o{ products : "contains"
 
@@ -205,9 +205,10 @@ erDiagram
     products ||--o{ transactions : "used_in"
     products ||--o{ wishlists : "saved_in"
     products ||--o{ conversations : "discussed_in"
+    products ||--o{ reports : "target_product_id"
 
-    offers ||--|| transactions : "leads_to"
-    transactions ||--|| reviews : "evaluated_by"
+    offers ||--|| transactions : "offer_id"
+    transactions ||--|| reviews : "transaction_id"
     conversations ||--o{ messages : "has"
     transactions ||--o{ escrow_events : "logs"
 ```
@@ -326,8 +327,8 @@ erDiagram
 
 ## 3. Catatan Desain ISO
 
-- Semua tabel utama menggunakan `BIGINT UNSIGNED` sebagai `id` untuk konsistensi.
+- Semua tabel utama menggunakan `BIGINT` sebagai `id` untuk konsistensi.
 - Relasi foreign key dijaga menggunakan `REFERENCES ... ON DELETE ...` di database schema.
 - Setiap entitas memiliki `created_at` dan `updated_at` untuk pencatatan audit.
-- Beberapa field unik ditandai dengan `UNIQUE` atau `UNQ` pada ERD, seperti `users.email`, `categories.slug`, `products.slug`, dan `transactions.offer_id`.
+- Beberapa field unik ditandai dengan `UNIQUE` pada ERD, seperti `users.email`, `categories.slug`, `products.slug`, `transactions.offer_id`, dan `reviews.transaction_id`.
 - Nama kolom mengikuti pola lower_snake_case yang konsisten dengan desain database MySQL.
