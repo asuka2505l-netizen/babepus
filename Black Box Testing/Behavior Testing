@@ -1,6 +1,10 @@
-# 6. Behavior Testing
+#  Behavior Testing
 
-mermaid
+##  Sequence Diagram
+
+###  Login Sequence
+
+```mermaid
 sequenceDiagram
   participant User
   participant Frontend
@@ -14,8 +18,11 @@ sequenceDiagram
   Backend->>Backend: Verify password
   Backend-->>Frontend: token + user info
   Frontend-->>User: Display dashboard
-### 3.2 Create Offer Sequence
-mermaid
+```
+
+###  Create Offer Sequence
+
+```mermaid
 sequenceDiagram
   participant Buyer
   participant Frontend
@@ -30,8 +37,11 @@ sequenceDiagram
   Backend-->>Frontend: confirmation
   Backend->>Seller: send notification
   Frontend-->>Buyer: show success
-### 3.3 Complete Transaction Sequence
-mermaid
+```
+
+###  Complete Transaction Sequence
+
+```mermaid
 sequenceDiagram
   participant Seller
   participant Backend
@@ -46,8 +56,9 @@ sequenceDiagram
   Database-->>Backend: success
   Backend->>Buyer: notify transaction created
   Backend-->>Seller: confirm completion
+```
 
-## 6.1 Login Behavior Testing
+##  Login Behavior Testing
 
 ### BT-LOGIN-001 - Login Berhasil
 
@@ -101,7 +112,7 @@ sequenceDiagram
 
 ---
 
-## 6.2 Create Offer Behavior Testing
+##  Create Offer Behavior Testing
 
 ### BT-OFFER-001 - Berhasil Membuat Penawaran
 
@@ -155,7 +166,7 @@ sequenceDiagram
 
 ---
 
-## 6.3 Complete Transaction Behavior Testing
+##  Complete Transaction Behavior Testing
 
 ### BT-TRANS-001 - Transaksi Berhasil Diselesaikan
 
@@ -209,7 +220,7 @@ sequenceDiagram
 
 ---
 
-## 6.4 Ringkasan Hasil Pengujian
+##  Ringkasan Hasil Pengujian
 
 | Modul                | Jumlah Test Case | Pass   | Fail  |
 | -------------------- | ---------------- | ------ | ----- |
