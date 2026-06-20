@@ -24,7 +24,7 @@
 | 5 | Sample Testing | belum Selesai |  |
 | 6 | Robustness Testing | selesai | Adit |
 | 7 | Behaviour Testing | sudah Dikerjakan | Raka |
-| 8 | Performance Testing | Belum Dikerjakan | |
+| 8 | Performance Testing | sudah Dikerjakan | Raka |
 | 9 | Endurance Testing | sudah Dikerjakan | Raka|
 
 ---
