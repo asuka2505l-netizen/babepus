@@ -1,0 +1,219 @@
+# 6. Behavior Testing
+
+mermaid
+sequenceDiagram
+  participant User
+  participant Frontend
+  participant Backend
+  participant Database
+
+  User->>Frontend: Submit email/password
+  Frontend->>Backend: POST /login
+  Backend->>Database: SELECT user WHERE email
+  Database-->>Backend: user record
+  Backend->>Backend: Verify password
+  Backend-->>Frontend: token + user info
+  Frontend-->>User: Display dashboard
+### 3.2 Create Offer Sequence
+mermaid
+sequenceDiagram
+  participant Buyer
+  participant Frontend
+  participant Backend
+  participant Database
+  participant Seller
+
+  Buyer->>Frontend: Click "Make Offer"
+  Frontend->>Backend: POST /offers
+  Backend->>Database: INSERT offer
+  Database-->>Backend: success
+  Backend-->>Frontend: confirmation
+  Backend->>Seller: send notification
+  Frontend-->>Buyer: show success
+### 3.3 Complete Transaction Sequence
+mermaid
+sequenceDiagram
+  participant Seller
+  participant Backend
+  participant Database
+  participant Buyer
+
+  Seller->>Backend: PATCH /offers/:id/status
+  Backend->>Database: SELECT offer + product
+  Backend->>Database: UPDATE offer status
+  Backend->>Database: UPDATE product status
+  Backend->>Database: INSERT transaction
+  Database-->>Backend: success
+  Backend->>Buyer: notify transaction created
+  Backend-->>Seller: confirm completion
+
+## 6.1 Login Behavior Testing
+
+### BT-LOGIN-001 - Login Berhasil
+
+| Atribut           | Deskripsi                                                                                                  |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- |
+| Test Case ID      | BT-LOGIN-001                                                                                               |
+| Skenario          | Login berhasil                                                                                             |
+| Pre-condition     | User telah terdaftar pada sistem                                                                           |
+| Langkah Pengujian | 1. Buka halaman login.<br>2. Masukkan email valid.<br>3. Masukkan password valid.<br>4. Klik tombol Login. |
+| Expected Result   | Sistem memverifikasi akun, membuat token autentikasi, dan menampilkan dashboard pengguna.                  |
+| Status            | Pass                                                                                                       |
+
+---
+
+### BT-LOGIN-002 - Email Tidak Terdaftar
+
+| Atribut           | Deskripsi                                                                          |
+| ----------------- | ---------------------------------------------------------------------------------- |
+| Test Case ID      | BT-LOGIN-002                                                                       |
+| Skenario          | Login menggunakan email yang tidak terdaftar                                       |
+| Pre-condition     | Email tidak tersedia pada database                                                 |
+| Langkah Pengujian | 1. Masukkan email yang tidak terdaftar.<br>2. Masukkan password.<br>3. Klik Login. |
+| Expected Result   | Sistem menampilkan pesan "Email tidak ditemukan".                                  |
+| Status            | Pass                                                                               |
+
+---
+
+### BT-LOGIN-003 - Password Salah
+
+| Atribut           | Deskripsi                                                                 |
+| ----------------- | ------------------------------------------------------------------------- |
+| Test Case ID      | BT-LOGIN-003                                                              |
+| Skenario          | Login dengan password salah                                               |
+| Pre-condition     | Email terdaftar pada sistem                                               |
+| Langkah Pengujian | 1. Masukkan email valid.<br>2. Masukkan password salah.<br>3. Klik Login. |
+| Expected Result   | Sistem menolak login dan menampilkan pesan kesalahan autentikasi.         |
+| Status            | Pass                                                                      |
+
+---
+
+### BT-LOGIN-004 - Database Tidak Tersedia
+
+| Atribut           | Deskripsi                                  |
+| ----------------- | ------------------------------------------ |
+| Test Case ID      | BT-LOGIN-004                               |
+| Skenario          | Login saat database tidak dapat diakses    |
+| Pre-condition     | Database offline atau koneksi gagal        |
+| Langkah Pengujian | User melakukan login seperti biasa         |
+| Expected Result   | Sistem menampilkan pesan kesalahan server. |
+| Status            | Pass                                       |
+
+---
+
+## 6.2 Create Offer Behavior Testing
+
+### BT-OFFER-001 - Berhasil Membuat Penawaran
+
+| Atribut           | Deskripsi                                                                                     |
+| ----------------- | --------------------------------------------------------------------------------------------- |
+| Test Case ID      | BT-OFFER-001                                                                                  |
+| Skenario          | Buyer berhasil membuat penawaran                                                              |
+| Pre-condition     | Buyer telah login dan produk tersedia                                                         |
+| Langkah Pengujian | 1. Buka detail produk.<br>2. Klik Make Offer.<br>3. Isi nominal penawaran.<br>4. Klik Submit. |
+| Expected Result   | Data penawaran tersimpan pada database dan notifikasi dikirim ke seller.                      |
+| Status            | Pass                                                                                          |
+
+---
+
+### BT-OFFER-002 - Harga Penawaran Kosong
+
+| Atribut           | Deskripsi                                            |
+| ----------------- | ---------------------------------------------------- |
+| Test Case ID      | BT-OFFER-002                                         |
+| Skenario          | Buyer tidak mengisi harga penawaran                  |
+| Pre-condition     | Buyer telah login                                    |
+| Langkah Pengujian | Klik Submit tanpa mengisi harga penawaran            |
+| Expected Result   | Sistem menampilkan validasi bahwa harga wajib diisi. |
+| Status            | Pass                                                 |
+
+---
+
+### BT-OFFER-003 - Gagal Menyimpan Penawaran
+
+| Atribut           | Deskripsi                                         |
+| ----------------- | ------------------------------------------------- |
+| Test Case ID      | BT-OFFER-003                                      |
+| Skenario          | Database gagal menyimpan data offer               |
+| Pre-condition     | Database mengalami gangguan                       |
+| Langkah Pengujian | Buyer membuat penawaran                           |
+| Expected Result   | Sistem menampilkan pesan gagal membuat penawaran. |
+| Status            | Pass                                              |
+
+---
+
+### BT-OFFER-004 - Notifikasi Seller
+
+| Atribut           | Deskripsi                                                        |
+| ----------------- | ---------------------------------------------------------------- |
+| Test Case ID      | BT-OFFER-004                                                     |
+| Skenario          | Seller menerima notifikasi penawaran baru                        |
+| Pre-condition     | Offer berhasil dibuat                                            |
+| Langkah Pengujian | Buyer mengirim penawaran                                         |
+| Expected Result   | Sistem mengirim notifikasi kepada seller terkait penawaran baru. |
+| Status            | Pass                                                             |
+
+---
+
+## 6.3 Complete Transaction Behavior Testing
+
+### BT-TRANS-001 - Transaksi Berhasil Diselesaikan
+
+| Atribut           | Deskripsi                                                                         |
+| ----------------- | --------------------------------------------------------------------------------- |
+| Test Case ID      | BT-TRANS-001                                                                      |
+| Skenario          | Seller menyelesaikan transaksi                                                    |
+| Pre-condition     | Offer berstatus Accepted                                                          |
+| Langkah Pengujian | 1. Seller membuka daftar offer.<br>2. Klik Complete Transaction.                  |
+| Expected Result   | Status offer diperbarui, status produk menjadi sold, dan data transaksi tercatat. |
+| Status            | Pass                                                                              |
+
+---
+
+### BT-TRANS-002 - Offer Tidak Ditemukan
+
+| Atribut           | Deskripsi                                         |
+| ----------------- | ------------------------------------------------- |
+| Test Case ID      | BT-TRANS-002                                      |
+| Skenario          | Seller mengakses offer yang tidak valid           |
+| Pre-condition     | ID offer tidak ditemukan pada database            |
+| Langkah Pengujian | Seller melakukan update status offer              |
+| Expected Result   | Sistem menampilkan pesan "Offer tidak ditemukan". |
+| Status            | Pass                                              |
+
+---
+
+### BT-TRANS-003 - Gagal Membuat Transaksi
+
+| Atribut           | Deskripsi                                                                       |
+| ----------------- | ------------------------------------------------------------------------------- |
+| Test Case ID      | BT-TRANS-003                                                                    |
+| Skenario          | Gagal menyimpan transaksi                                                       |
+| Pre-condition     | Database transaksi mengalami gangguan                                           |
+| Langkah Pengujian | Seller menyelesaikan transaksi                                                  |
+| Expected Result   | Sistem melakukan rollback dan tidak ada perubahan data yang tersimpan sebagian. |
+| Status            | Pass                                                                            |
+
+---
+
+### BT-TRANS-004 - Notifikasi Buyer
+
+| Atribut           | Deskripsi                                                                      |
+| ----------------- | ------------------------------------------------------------------------------ |
+| Test Case ID      | BT-TRANS-004                                                                   |
+| Skenario          | Buyer menerima notifikasi transaksi                                            |
+| Pre-condition     | Transaksi berhasil dibuat                                                      |
+| Langkah Pengujian | Seller menyelesaikan transaksi                                                 |
+| Expected Result   | Sistem mengirim notifikasi kepada buyer bahwa transaksi telah berhasil dibuat. |
+| Status            | Pass                                                                           |
+
+---
+
+## 6.4 Ringkasan Hasil Pengujian
+
+| Modul                | Jumlah Test Case | Pass   | Fail  |
+| -------------------- | ---------------- | ------ | ----- |
+| Login                | 4                | 4      | 0     |
+| Create Offer         | 4                | 4      | 0     |
+| Complete Transaction | 4                | 4      | 0     |
+| **Total**            | **12**           | **12** | **0** |
