@@ -73,7 +73,7 @@ erDiagram
 
     transactions {
         bigint id PK
-        bigint offer_id FK UK
+        bigint offer_id FK
         bigint product_id FK
         bigint buyer_id FK
         bigint seller_id FK
@@ -90,7 +90,7 @@ erDiagram
 
     reviews {
         bigint id PK
-        bigint transaction_id FK UK
+        bigint transaction_id FK
         bigint reviewer_id FK
         bigint seller_id FK
         tinyint rating
