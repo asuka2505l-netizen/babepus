@@ -20,7 +20,7 @@
 | 2 | Equivalence Partitioning | sudah Dikerjan | Raka |
 | 3 | Comparison Testing | Sudah Dikerjakan | Raka |
 | 4 | Decision Table Testing | Sudah Dikerjakan | Raka |
-| 5 | Sample Testing | belum Selesai |  |
+| 5 | Sample Testing | belum Selesai | adit |
 | 6 | Robustness Testing | selesai | Adit |
 | 7 | Behaviour Testing | sudah Dikerjakan | Raka |
 | 8 | Performance Testing | sudah Dikerjakan | Raka |
@@ -34,7 +34,7 @@
 | 1 | Orthogonal Array | sudah selesai | iki  |
 | 2 | MatrixTesting | sudah selesai  | iki |
 | 3 | Regression Testing | sudah selesai | iki  |
-| 4 | Pattern Testing | blm | iki  |
+| 4 | Pattern Testing | sudah selesai | iki  |
 
 ---
 # Keterangan Status
