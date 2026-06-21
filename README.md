@@ -3,9 +3,9 @@
 # Grey Box Testing
 | No | Tugas | Status | Dikerjakan Oleh |
 |----|--------|---------|-----------------|
-| 1 | Orthogonal Array Testing | Sudah Selesai | Raka |
+| 1 | Orthogonal Array Testing | Sudah Selesai | iki |
 | 2 | Matrix Testing | sudah selesai | iki |
-| 3 | Regression Testing | sudah selesai |Raka  |
+| 3 | Regression Testing | sudah selesai |iki  |
 | 4 | Pattern Testing | sudah selesai | iki|
 
 
