@@ -33,7 +33,7 @@
 |----|--------|---------|-----------------|
 | 1 | Orthogonal Array | sudah selesai | iki  |
 | 2 | MatrixTesting | sudah selesai  | iki |
-| 3 | Regression Testing | blm | iki  |
+| 3 | Regression Testing | sudah selesai | iki  |
 | 4 | Pattern Testing | blm | iki  |
 
 ---
