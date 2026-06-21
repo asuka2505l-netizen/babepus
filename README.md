@@ -1,5 +1,13 @@
 # Tabel Progress Pengerjaan Project
 
+# Grey Box Testing
+| No | Tugas | Status | Dikerjakan Oleh |
+|----|--------|---------|-----------------|
+| 1 | Orthogonal Array Testing | Sudah Selesai | Raka |
+| 2 | Matrix Testing | sudah selesai | iki |
+| 3 | Regression Testing | sudah selesai |Raka  |
+| 4 | Pattern Testing | sudah selesai | iki|
+
 
 # White Box Testing
 | No | Tugas | Status | Dikerjakan Oleh |
