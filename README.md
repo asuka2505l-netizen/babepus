@@ -20,7 +20,7 @@
 | 2 | Equivalence Partitioning | sudah Dikerjan | Raka |
 | 3 | Comparison Testing | Sudah Dikerjakan | Raka |
 | 4 | Decision Table Testing | Sudah Dikerjakan | Raka |
-| 5 | Sample Testing | belum Selesai | adit |
+| 5 | Sample Testing | sudah Selesai | adit |
 | 6 | Robustness Testing | selesai | Adit |
 | 7 | Behaviour Testing | sudah Dikerjakan | Raka |
 | 8 | Performance Testing | sudah Dikerjakan | Raka |
